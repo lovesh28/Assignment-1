@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 // import { Link } from "react-router-dom";
 import "./Home.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
             products button to see the products.
           </p>
           <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <Button variant="success">Products</Button>
+            <Button variant="success" as={Link} to='/product'>Products</Button>
           </div>
         </div>
       </div>
