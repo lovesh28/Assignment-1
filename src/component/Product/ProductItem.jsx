@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 // import { Link } from "react-router-dom";
 // import { FaInfoCircle } from "react-icons/fa";
 import "./Product.css";
+import ViewProduct from "./component/Product/ViewProduct";
 
 const ProductItem = ({ product }) => {
   return (
@@ -37,10 +38,12 @@ const ProductItem = ({ product }) => {
           View Product Details{" "}
           {/* <FaInfoCircle style={{ marginLeft: "5px" }}></FaInfoCircle> */}
         </Button>
+          <ViewProduct/>
       </div>
     </>
   );
 };
+
 
 ProductItem.propTypes = {
   product: PropTypes.shape({

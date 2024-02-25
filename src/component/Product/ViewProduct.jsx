@@ -10,6 +10,7 @@ const ViewProduct = () => {
   const [Error, setError] = useState(null);
 
   useEffect(() => {
+    console.log("id",id);
     const fetchdata = async () => {
       try {
         const response = await axios.get(
@@ -42,6 +43,7 @@ const ViewProduct = () => {
           <div className="product-detail-card">
             <div className="product-img-container">
               <img
+              className="product-img"
                 src={product.thumbnail}
                 alt={product.title}
                 style={{ width: "300px" }}
@@ -51,7 +53,7 @@ const ViewProduct = () => {
               <h3>{product.title}</h3>
               <p className="product-text">{product.brand} </p>
               <p>{product.description}</p>
-              <p className="product-text">{product.price} </p>
+              <p className="product-text">${product.price} </p>
               Discount:{""}
               <p className="product-text">{product.discountPercentage}%</p>
               <p className="product-text fs-6 fw-bold">
