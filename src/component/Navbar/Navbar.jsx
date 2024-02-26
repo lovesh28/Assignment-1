@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import SignUp from "../SignUp/SignUp";
 
 // import logo from "../../../public/logo.jpeg";
 
@@ -57,12 +58,9 @@ const Navbar1 = () => {
               <FontAwesomeIcon icon="fa-solid fa-house" /> Home
             </Nav.Link>
             <Nav.Link className="navbar-text" as={Link} to="/product">
-            
               <FontAwesomeIcon icon="fa-solid fa-layer-group" /> Products
             </Nav.Link>
-            <Nav.Link className="navbar-text"  as={Link}
-                to="/profile">
-              
+            <Nav.Link className="navbar-text" as={Link} to="/profile">
               <FontAwesomeIcon icon="fa-regular fa-user" />
               Profile
             </Nav.Link>
@@ -79,7 +77,7 @@ const Navbar1 = () => {
               </Button>
               <Button
                 as={Link}
-                to="/signup"
+                to="/signUp"
                 className="btn btn-primary"
                 type="button"
               >

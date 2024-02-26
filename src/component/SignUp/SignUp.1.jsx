@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from "react";
-// import FloatingForm.Label from "react-bootstrap/FloatingForm.Label";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import { Link, useNavigate } from "react-router-dom";
-// import * as Yup from "yup";
-// import bcrypt from "bcryptjs";
 
-// import Form.Label from "react-bootstrap/esm/FormForm.Label";
-
-const SignUp = () => {
-  const [showModal, setShowModal] = useState(false);
-  const navigateTo = useNavigate();
-  const handleCloseModal = () => setShowModal(false);
-
+export const SignUp = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -21,7 +10,6 @@ const SignUp = () => {
     cpassword: "",
     errors: {},
   });
-  
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -31,6 +19,7 @@ const SignUp = () => {
   };
   const validateForm = () => {
     const errors = {}; // Initialize empty errors object
+
     // Validate full name
     if (!formData.fullName.trim()) {
       errors.fullName = "Full name is required";
@@ -52,9 +41,14 @@ const SignUp = () => {
     // Return true if no errors, false otherwise
     return Object.keys(errors).length === 0;
   };
-
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission
+
+    // const existingUser = signUpUsers.find(user => user.email === formData.email);
+    //     if (existingUser) {
+    //       setErrors({ email: 'Email already exists' });
+    //       return;
+    //     }
     const isValid = validateForm();
     if (isValid) {
       try {
@@ -137,107 +131,12 @@ const SignUp = () => {
                 <span className="text-danger">{formData.errors.cpassword}</span>
               )}
             </Form.Group>
-            <Button
-              className="mx-1 form-btn"
-              type="submit"
-              // onClick = { () => {
-              //   navigateTo="/login"
-              // }}
-            >
+            <Button className="mx-1 form-btn" type="submit">
               Sign Up
             </Button>
           </Form>
         </div>
       </div>
-
-      {/* Modal for showing success message */}
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>User Created</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Your account has been successfully created!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-          <Button
-            className="form-btn"
-            onClick={() => {
-              navigateTo("/");
-              handleCloseModal();
-            }}
-          >
-            Go to Profile
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </>
   );
 };
-
-export default SignUp;
-
-// <div className="container form-container">
-// <h1 className="form-title">Sign Up</h1>
-// <Form className="form-body">
-//   <FormGroup className="mb-3">
-//     <Form.Label>Full Name:</Form.Label>
-//     <Form.Control
-//       type="text"
-//       id="fullName"
-//       name="fullName"
-//       placeholder="Enter Full Name"
-//       value={formData.fullName}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.fullName && (
-//       <span className="text-danger">{formData.errors.fullName}</span>
-//     )} */}
-//   </FormGroup>
-//   <FormGroup className="mb-3">
-//     <Form.Label htmlFor="email">Email address:</Form.Label>
-//     <Form.Control
-//       type="email"
-//       id="email"
-//       name="email"
-//       placeholder="Enter email"
-//       value={formData.email}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.email && (
-//       <span className="text-danger">{formData.errors.email}</span>
-//     )} */}
-//   </FormGroup>
-//   <FormGroup className="mb-3">
-//     <Form.Label htmlFor="password">Password:</Form.Label>
-//     <Form.Control
-//       type="password"
-//       id="password"
-//       name="password"
-//       placeholder="Password"
-//       value={formData.password}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.password && (
-//       <span className="text-danger">{formData.errors.password}</span>
-//     )} */}
-//   </FormGroup>
-//   <FormGroup className="mb-3">
-//     <Form.Label htmlFor="confirmPassword">Confirm Password:</Form.Label>
-//     <Form.Control
-//       type="password"
-//       id="confirmPassword"
-//       name="cpassword"
-//       placeholder="Confirm Password"
-//       value={formData.cpassword}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.cpassword && (
-//       <span className="text-danger">{formData.errors.cpassword}</span>
-//     )} */}
-//   </FormGroup>
-//   <Button className="mx-1 form-btn" type="submit">
-//     Sign Up
-//   </Button>
-// </Form>
-// </div>
