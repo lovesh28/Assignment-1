@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import FloatingForm.Label from "react-bootstrap/FloatingForm.Label";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Link, useNavigate } from "react-router-dom";
-// import * as Yup from "yup";
-// import bcrypt from "bcryptjs";
 
-// import Form.Label from "react-bootstrap/esm/FormForm.Label";
 
 const SignUp = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +17,7 @@ const SignUp = () => {
     cpassword: "",
     errors: {},
   });
-  
+
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -177,67 +173,3 @@ const SignUp = () => {
 
 export default SignUp;
 
-// <div className="container form-container">
-// <h1 className="form-title">Sign Up</h1>
-// <Form className="form-body">
-//   <FormGroup className="mb-3">
-//     <Form.Label>Full Name:</Form.Label>
-//     <Form.Control
-//       type="text"
-//       id="fullName"
-//       name="fullName"
-//       placeholder="Enter Full Name"
-//       value={formData.fullName}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.fullName && (
-//       <span className="text-danger">{formData.errors.fullName}</span>
-//     )} */}
-//   </FormGroup>
-//   <FormGroup className="mb-3">
-//     <Form.Label htmlFor="email">Email address:</Form.Label>
-//     <Form.Control
-//       type="email"
-//       id="email"
-//       name="email"
-//       placeholder="Enter email"
-//       value={formData.email}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.email && (
-//       <span className="text-danger">{formData.errors.email}</span>
-//     )} */}
-//   </FormGroup>
-//   <FormGroup className="mb-3">
-//     <Form.Label htmlFor="password">Password:</Form.Label>
-//     <Form.Control
-//       type="password"
-//       id="password"
-//       name="password"
-//       placeholder="Password"
-//       value={formData.password}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.password && (
-//       <span className="text-danger">{formData.errors.password}</span>
-//     )} */}
-//   </FormGroup>
-//   <FormGroup className="mb-3">
-//     <Form.Label htmlFor="confirmPassword">Confirm Password:</Form.Label>
-//     <Form.Control
-//       type="password"
-//       id="confirmPassword"
-//       name="cpassword"
-//       placeholder="Confirm Password"
-//       value={formData.cpassword}
-//       onChange={handleChange}
-//     />
-//     {/* {formData.errors.cpassword && (
-//       <span className="text-danger">{formData.errors.cpassword}</span>
-//     )} */}
-//   </FormGroup>
-//   <Button className="mx-1 form-btn" type="submit">
-//     Sign Up
-//   </Button>
-// </Form>
-// </div>
