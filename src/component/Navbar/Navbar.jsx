@@ -19,8 +19,6 @@ import {
 import SignUp from "../SignUp/SignUp";
 import "./Navbar.css";
 
-
-
 const Navbar1 = () => {
   return (
     <>
@@ -28,14 +26,14 @@ const Navbar1 = () => {
         <Navbar bg="dark" data-bs-theme="dark">
           <Navbar.Brand as={Link} to="/">
             <img
-              style={{ height: "40px", width: "80px" }}
-              src="logo.jpeg"
+              style={{ height: "50px", width: "80px" }}
+              src="ecommerce.png"
               alt="logo"
             />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
-          
+
           <Nav className="me-auto" navbarScroll={false}>
             <Nav.Link as={Link} to="/" className="navbar-text">
               <FaHome className="nav-icon" /> Home
