@@ -1,0 +1,9 @@
+@import url(../../App.css);
+
+.form-title {
+  color: var(--secondary-c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+}

@@ -3,13 +3,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Link, useNavigate } from "react-router-dom";
+import bcrypt from "bcryptjs";
 
 
 const SignUp = () => {
-  const [showModal, setShowModal] = useState(false);
   const navigateTo = useNavigate();
-  const handleCloseModal = () => setShowModal(false);
-
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -18,56 +16,61 @@ const SignUp = () => {
     errors: {},
   });
 
+  const [errors, setErrors] = useState({});
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => setShowModal(false);
+
   const handleChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
-      errors: { ...formData.errors, [event.target.name]: "" }, // Clear any previous errors on change
+      errors: { ...formData.errors, [event.target.name]: "" }, 
     });
   };
   const validateForm = () => {
-    const errors = {}; // Initialize empty errors object
-    // Validate full name
+    const errors = {}; 
+    
     if (!formData.fullName.trim()) {
       errors.fullName = "Full name is required";
     }
-    // Validate email
+    
     if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = "Invalid email address";
     }
-    // Validate password
+    
     if (!formData.password || formData.password.length < 6) {
       errors.password = "Password must be at least 6 characters long";
     }
-    // Validate confirm password
+    
     if (formData.password !== formData.cpassword) {
       errors.cpassword = "Passwords do not match";
     }
-    // Update state with errors (if any)
+    
     setFormData({ ...formData, errors });
-    // Return true if no errors, false otherwise
+    
     return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
     const isValid = validateForm();
     if (isValid) {
       try {
-        // Push user data into the array
+        
         const userData = JSON.parse(localStorage.getItem("userData")) || [];
+        const hashedPassword = bcrypt.hashSync(formData.password, 10);
         userData.push({
           fullName: formData.fullName,
           email: formData.email,
-          // Consider hashing passwords before storage for better security
-          password: formData.password,
+          password: hashedPassword,
         });
         localStorage.setItem("userData", JSON.stringify(userData));
         setFormData({ fullName: "", email: "", password: "", cpassword: "" });
-        alert("Your data has been stored in local storage!");
+        navigateTo("/");
       } catch (error) {
         console.error("Error storing data:", error);
-        alert("An error occurred while storing your data. Please try again.");
       }
     }
   };
@@ -76,7 +79,7 @@ const SignUp = () => {
     <>
       <div>
         <div className="container form-container">
-          <h1 className="form-title">Sign Up</h1>
+          <h1 className="form-title my-4">Sign Up</h1>
 
           <Form className="form-body" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicFullName">
@@ -111,7 +114,7 @@ const SignUp = () => {
               <Form.Control
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder="Enter Password"
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -125,7 +128,7 @@ const SignUp = () => {
               <Form.Control
                 type="password"
                 name="cpassword"
-                placeholder="Confirm Password"
+                placeholder="EnterConfirm Password"
                 value={formData.cpassword}
                 onChange={handleChange}
               />
@@ -136,9 +139,7 @@ const SignUp = () => {
             <Button
               className="mx-1 form-btn"
               type="submit"
-              // onClick = { () => {
-              //   navigateTo="/login"
-              // }}
+              
             >
               Sign Up
             </Button>
@@ -146,7 +147,7 @@ const SignUp = () => {
         </div>
       </div>
 
-      {/* Modal for showing success message */}
+      
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>User Created</Modal.Title>
@@ -172,4 +173,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-

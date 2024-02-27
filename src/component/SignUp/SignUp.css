@@ -1,4 +1,4 @@
-@import url(../../App.css);
+ @import url(../../App.css);
 
 .form-title{
     color: var(--secondary-c);
@@ -19,10 +19,10 @@
   
     width: 500px;
     /* border: 1px solid var(--secondary-c); */
-    border-radius: 10px;
+    border-radius : 10px;
     box-shadow:3px 3px 15px var(--primary-c);
     padding: 9px;
-  }
+  } 
 
 .form-btn{
     background-color: var(--background-c);
@@ -34,4 +34,4 @@
     background-color: var(--darker-c);
     color: var(--background-c);
     border: 1px solid var(--background-c);
-}
+} 

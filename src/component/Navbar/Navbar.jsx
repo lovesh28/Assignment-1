@@ -8,79 +8,55 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import SignUp from "../SignUp/SignUp";
+import {
+  FaUser,
+  FaSignInAlt,
+  FaHome,
+  FaLayerGroup,
+  FaRegUser,
+} from "react-icons/fa";
 
-// import logo from "../../../public/logo.jpeg";
+import SignUp from "../SignUp/SignUp";
+import "./Navbar.css";
+
+
 
 const Navbar1 = () => {
-  //   const navigateTo = useNavigate();
-  //   const [IsLogggedIn , setIsLoggedIn] = useState(false);
-  //   const [IsSignedUp , setIsSignedUp] = useState(false);
-
-  //   useEffect(() => {
-  //     // Check if user is logged in
-  //     const loggedInUser = localStorage.getItem('loggedInUser');
-  //     if (loggedInUser) {
-  //       setIsLoggedIn(true);
-  //     }
-
-  //     // Check if user is signed up
-  //     const signedUpUser = localStorage.getItem('signUpUsers');
-  //     if (signedUpUser) {
-  //       setIsSignedUp(true);
-  //     }
-  //   }, []);
-
-  //   const isAuthenticated = isLoggedIn  || isSignedUp;
-
-  //   const handleLogout = () => {
-
-  //    localStorage.removeItem('loggedInUser')
-  //    localStorage.removeItem('signUpUsers')
-  //     setIsLoggedIn(false);
-  //     setIsSignedUp(false);
-  //     navigateTo('/');
-  //   };
-
   return (
     <>
       <div className="navbar-body">
         <Navbar bg="dark" data-bs-theme="dark">
-          <Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
             <img
               style={{ height: "40px", width: "80px" }}
               src="logo.jpeg"
               alt="logo"
             />
           </Navbar.Brand>
-          <Nav className="me-auto">
+
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          
+          <Nav className="me-auto" navbarScroll={false}>
             <Nav.Link as={Link} to="/" className="navbar-text">
-              <FontAwesomeIcon icon="fa-solid fa-house" /> Home
+              <FaHome className="nav-icon" /> Home
             </Nav.Link>
             <Nav.Link className="navbar-text" as={Link} to="/product">
-              <FontAwesomeIcon icon="fa-solid fa-layer-group" /> Products
+              <FaLayerGroup className="nav-icon" /> Products
             </Nav.Link>
             <Nav.Link className="navbar-text" as={Link} to="/profile">
-              <FontAwesomeIcon icon="fa-regular fa-user" />
+              <FaRegUser className="nav-icon" />
               Profile
             </Nav.Link>
           </Nav>
+
           <div className="button-container">
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-              <Button
-                as={Link}
-                to="/login"
-                className="btn btn-primary me-md-2"
-                type="button"
-              >
+              <Button as={Link} to="/login" className="nav-btn" type="button">
+                <FaSignInAlt className="nav-icon" />
                 Login
               </Button>
-              <Button
-                as={Link}
-                to="/signUp"
-                className="btn btn-primary"
-                type="button"
-              >
+              <Button as={Link} to="/signUp" className="nav-btn" type="button">
+                <FaUser className="nav-icon" />
                 SignUp
               </Button>
             </div>

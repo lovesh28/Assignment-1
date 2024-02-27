@@ -1,10 +1,10 @@
-.navbar-body{
+/* .navbar-body{
     background-color: var(--background-c) ;
 }
 
-.navbar-main {
-    /* background-color: var(--background-c); */
-    border-bottom: 1px solid var(--darker-c);
+.navbar-main { */
+/* background-color: var(--background-c);
+    /* border-bottom: 1px solid var(--darker-c);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -26,4 +26,77 @@
   background-color: var(--darker-c);
   border-radius: 10px;
   transition: ease 1s;
+  } */
+
+/* @import url(../../App.css); */
+
+/* .navbar-body{
+  background-color: var(--background-c);
+}
+
+.navbar-main {
+  /* background-color: var(--background-c); */
+/* border-bottom: 1px solid var(--darker-c);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ 
+ 
+} */
+
+.navbar-title {
+  color: var(--darker-c);
+}
+
+.navbar-title:hover {
+  color: var(--darker-c);
+}
+.navbar-body {
+  color: var(--darker-c);
+}
+
+.navbar-text {
+  margin-left: 2px;
+  color: var(--secondary-c);
+  font-size: 1.25rem;
+}
+.navbar-text:hover {
+  color: var(--background-c);
+  background-color: var(--darker-c);
+  border-radius: 10px;
+  transition: ease 1s;
+}
+
+.nav-btn {
+  justify-content: end;
+  background-color: var(--background-c);
+  margin-left: 3px;
+  color: var(--darker-c);
+  border: 1px solid var(--darker-c);
+}
+
+.nav-btn:hover {
+  background-color: var(--secondary-c);
+  color: var(--primary-c);
+  border: 1px solid var(--background-c);
+  transition: ease 0.78s;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-title {
+    color: var(--primary-c);
+    border-radius: 0;
   }
+  .navbar-text {
+    text-align: center;
+  }
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}

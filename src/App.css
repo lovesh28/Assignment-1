@@ -3,8 +3,8 @@
 
 :root {
   --primary-c: #000102;
-  --secondary-c: #0930f5;
-  --darker-c: #ed0e0e;
+  --secondary-c: #098bf5;
+  --darker-c: #212529;
   --background-c: #ffffff;
 }
 
@@ -19,6 +19,7 @@ h1 {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
+  align-items: center;
 }
 
 h3 {

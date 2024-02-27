@@ -37,15 +37,11 @@ const ProductListing = () => {
     <>
       <div>
         <h1 className="product-title"> Products</h1>
-        {/* <ProductItem product={product}/> */}
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div className="product-body" style={{ marginLeft: "9px" }}>
             {loading ? (
               <p>Loading Products...</p>
             ) : (
-              //   setTimeout(() => {
-              //     <p>Loading Products...</p>;
-              //   }, 3000)
               <div className="row">
                 {products.map((product) => (
                   <div className="col-xxl-3" key={product.id}>
