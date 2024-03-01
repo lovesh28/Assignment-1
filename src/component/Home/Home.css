@@ -1,0 +1,9 @@
+@import url(../../App.css);
+
+.container-image {
+  display: contents;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  /* display: none; */
+}

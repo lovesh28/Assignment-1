@@ -10,7 +10,7 @@ const Home = () => {
       <div className="px-4 py-5 my-5 text-center">
         <img
           className="d-block mx-auto mb-4"
-          style={{ height: "200px", width: "200px", }}
+          style={{ height: "200px", width: "200px" }}
           src="ecommerce.png"
           alt="logo"
         />

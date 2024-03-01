@@ -23,7 +23,7 @@ const Navbar1 = () => {
   return (
     <>
       <div className="navbar-body">
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar bg="light" data-bs-theme="light">
           <Navbar.Brand as={Link} to="/">
             <img
               style={{ height: "50px", width: "80px" }}
