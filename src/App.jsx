@@ -1,6 +1,6 @@
-import Home from "./component/Home/Home";
+import Home from "./component/home/Home";
 import "./App.css";
-import Navbar1 from "./component/Navbar/Navbar";
+import Navbar1 from "./component/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -10,12 +10,12 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Login from "./component/Login/Login";
-import SignUp from "./component/SignUp/SignUp";
-import Profile from "./component/Profile/Profile";
-import ProductListing from "./component/Product/ProductListing";
-import ProductItem from "./component/Product/ProductItem";
-import ViewProduct from "./component/Product/ViewProduct";
+import Login from "./component/login/Login";
+import SignUp from "./component/signup/SignUp";
+import Profile from "./component/profile/Profile";
+import ProductListing from "./component/product/ProductListing";
+import ProductItem from "./component/product/ProductItem";
+import ViewProduct from "./component/product/ViewProduct";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,14 +44,13 @@ function App() {
           <Route
             exact
             path="/login"
-            element={<Login setIsLoggedIn={setIsLoggedIn}/>}
-            />
-          {" "}
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          />{" "}
           <Route
             exact
             path="/signup"
             element={<SignUp setIsSignedUp={setIsSignedUp} />}
-            />{" "}
+          />{" "}
           <Route
             path="/profile"
             element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}

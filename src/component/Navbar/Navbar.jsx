@@ -16,7 +16,6 @@ import {
   FaRegUser,
 } from "react-icons/fa";
 
-import SignUp from "../SignUp/SignUp";
 import "./Navbar.css";
 
 const Navbar1 = () => {
