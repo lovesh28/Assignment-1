@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import "./Product.css";
+import fetchProducts from "../redux/ProductAction";
+import productReducer from "../redux/Reducer";
 
 const ProductItem = ({ product }) => {
   return (
