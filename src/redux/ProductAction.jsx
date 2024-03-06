@@ -26,6 +26,8 @@ export const fetchProducts = (page) => {
         `https://dummyjson.com/products?skip=${(page - 1) * 8}&limit=8`
       );
 
+      console.log('API Response:', response.data);
+
       dispatch(
         fetchProductsSuccess(
           response.data.products,
