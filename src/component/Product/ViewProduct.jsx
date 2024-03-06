@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Product.css";
 import fetchProducts from "../../redux/ProductAction"
-// import productReducer from "./redux/Reducer";
+
 
 const ViewProduct = () => {
   const { id } = useParams();

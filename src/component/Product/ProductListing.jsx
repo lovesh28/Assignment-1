@@ -8,14 +8,14 @@ import fetchProducts from "../../redux/ProductAction";
 const ProductListing = () => {
   const dispatch = useDispatch();
   const { products, loading, totalPages } = useSelector((state) => state);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(fetchProducts(1));
   }, [dispatch]);
-
+  
   // const [products, setProducts] = useState([]);
   // const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
   // const [totalPages, setTotalPages] = useState(0);
 
   // useEffect(() => {
