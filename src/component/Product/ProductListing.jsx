@@ -2,47 +2,47 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductItem from "./ProductItem";
 import { useDispatch, useSelector } from "react-redux";
-import fetchProducts from "../redux/ProductAction";
-import productReducer from "../redux/Reducer";
+import fetchProducts from "./redux/ProductAction";
+import productReducer from "./redux/Reducer";
 
 const ProductListing = () => {
   const ProductListing = () => {
     const dispatch = useDispatch();
-    // const { products, loading, totalPages } = useSelector((state) => state);
+    const { products, loading, totalPages } = useSelector((state) => state);
 
     useEffect(() => {
       dispatch(fetchProducts(1));
     }, [dispatch]);
 
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
+    // const [products, setProducts] = useState([]);
+    // const [loading, setLoading] = useState(true);
+    // const [page, setPage] = useState(1);
+    // const [totalPages, setTotalPages] = useState(0);
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(
-            ` https://dummyjson.com/products?skip=${(page - 1) * 8}&limit=8`
-          );
-          setProducts(response.data.products);
-          setTotalPages(Math.ceil(response.data.total / 8));
-          setLoading(false);
-          // console.log("response : ", response);
-        } catch (error) {
-          console.log("Error Fetching", error);
-        }
-      };
-      fetchData();
-    }, [page]);
+    // useEffect(() => {
+    //   const fetchData = async () => {
+    //     try {
+    //       const response = await axios.get(
+    //         ` https://dummyjson.com/products?skip=${(page - 1) * 8}&limit=8`
+    //       );
+    //       setProducts(response.data.products);
+    //       setTotalPages(Math.ceil(response.data.total / 8));
+    //       setLoading(false);
+    //       // console.log("response : ", response);
+    //     } catch (error) {
+    //       console.log("Error Fetching", error);
+    //     }
+    //   };
+    //   fetchData();
+    // }, [page]);
 
-    const handlePrevPage = () => {
-      setPage((prevPage) => prevPage - 1);
-    };
+    // const handlePrevPage = () => {
+    //   setPage((prevPage) => prevPage - 1);
+    // };
 
-    const handleNextPage = () => {
-      setPage((prevPage) => prevPage + 1);
-    };
+    // const handleNextPage = () => {
+    //   setPage((prevPage) => prevPage + 1);
+    // };
 
     return (
       <>

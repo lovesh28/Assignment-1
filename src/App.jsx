@@ -17,10 +17,10 @@ import ProductListing from "./component/product/ProductListing";
 import ProductItem from "./component/product/ProductItem";
 import ViewProduct from "./component/product/ViewProduct";
 import { connect } from "react-redux";
-import { fetchProducts } from "./component/redux/ProductAction";
-import { Reducer } from "react";
+import { fetchProducts } from "./redux/ProductAction";
+import { Reducer } from "./redux/Reducer";
+import store from "./redux/Store";
 import { Provider } from "react-redux";
-import store from "./component/redux/Store";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -60,7 +60,7 @@ function App() {
             path="/profile"
             element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
           />
-          <Provider>
+          <Provider store={store}>
             <Route path="/product" element={<ProductListing />} />{" "}
           </Provider>
           <Route path="/view/:id" element={<ViewProduct />} />

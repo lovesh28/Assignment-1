@@ -1,4 +1,3 @@
-
 import {
     FETCH_PRODUCTS_REQUEST,
     FETCH_PRODUCTS_SUCCESS,
@@ -37,4 +36,3 @@ import {
   };
   
   export default productReducer;
-  
