@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductItem from "./ProductItem";
 import { useDispatch, useSelector } from "react-redux";
-import fetchProducts from "./redux/ProductAction";
-import productReducer from "./redux/Reducer";
+import fetchProducts from "../../redux/ProductAction"
+import productReducer from "../../redux/Reducer"
 
 const ProductListing = () => {
   const ProductListing = () => {

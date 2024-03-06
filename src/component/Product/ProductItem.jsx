@@ -4,8 +4,8 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import "./Product.css";
 import { connect } from "react-redux";
-import fetchProducts from "./redux/ProductAction";
-import productReducer from "./redux/Reducer";
+import fetchProducts from "../../redux/ProductAction"
+import productReducer from "../../redux/Reducer"
 import store from "../../redux/Store";
 
 const ProductItem = ({ product }) => {
