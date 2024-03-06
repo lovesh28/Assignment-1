@@ -25,7 +25,13 @@ export const fetchProducts = (page) => {
       const response = await axios.get(
         `https://dummyjson.com/products?skip=${(page - 1) * 8}&limit=8`
       );
-      dispatch(fetchProductsSuccess(response.data.products, Math.ceil(response.data.total / 8)));
+
+      dispatch(
+        fetchProductsSuccess(
+          response.data.products,
+          Math.ceil(response.data.total / 8)
+        )
+      );
     } catch (error) {
       dispatch(fetchProductsFailure(error));
     }

@@ -16,9 +16,6 @@ import Profile from "./component/profile/Profile";
 import ProductListing from "./component/product/ProductListing";
 import ProductItem from "./component/product/ProductItem";
 import ViewProduct from "./component/product/ViewProduct";
-import { connect } from "react-redux";
-import { fetchProducts } from "./redux/ProductAction";
-import { Reducer } from "./redux/Reducer";
 import store from "./redux/Store";
 import { Provider } from "react-redux";
 
@@ -42,6 +39,7 @@ function App() {
 
   return (
     <>
+    <Provider store={store}> 
       <Router>
         <Navbar1 />
         <Routes>
@@ -60,12 +58,13 @@ function App() {
             path="/profile"
             element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
           />
-          <Provider store={store}>
+          
             <Route path="/product" element={<ProductListing />} />{" "}
-          </Provider>
+          
           <Route path="/view/:id" element={<ViewProduct />} />
         </Routes>{" "}
       </Router>{" "}
+      </Provider>
     </>
   );
 }
